@@ -35,22 +35,22 @@ resource "aws_instance" "web" {
   key_name      = "mastercal"
   instance_type = "t2.micro"
   security_groups = ["${aws_security_group.splunk.name}"]
-    connection {
-    host        = "${self.public_ip}"
-    type        = "ssh"
-    user        = "ubuntu"
-    private_key = file("mastercal.pem")
-  }
+    #connection {
+    #host        = "${self.public_ip}"
+    #type        = "ssh"
+    #user        = "ubuntu"
+    #private_key = file("mastercal.pem")
+  #}
 
   tags = {
     Name = "Prod"
   }
-  provisioner "remote-exec" {
-    inline = [
-      "ping -c 10 8.8.8.8",
-      "curl -sSL https://raw.githubusercontent.com/ashwini1331/jenkinsbuild/main/jenkins.sh | bash",
-    ]
-  }
+  #provisioner "remote-exec" {
+   # inline = [
+    #  "ping -c 10 8.8.8.8",
+     # "curl -sSL https://raw.githubusercontent.com/ashwini1331/jenkinsbuild/main/jenkins.sh | bash",
+    #]
+  #}
 
 #  provisioner "local-exec" {
  #   command = "ansible-playbook -u ubuntu -i ${aws_instance.web.public_ip}, --private-key ${var.privatekey} jenkins.yml"
