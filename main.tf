@@ -8,7 +8,7 @@ variable "privatekey" {
   default = "/etc/ansible/mastercal.pem"
 }
 resource "aws_security_group" "splunk" {
-  name        = "splunk"
+  name        = "splunkbuild"
   description = "Created by terraform"
   ingress {
     from_port   = 22
@@ -43,7 +43,7 @@ resource "aws_instance" "web" {
   #}
 
   tags = {
-    Name = "Prod"
+    Name = "Prodbuild"
   }
   #provisioner "remote-exec" {
    # inline = [
