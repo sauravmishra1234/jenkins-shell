@@ -31,7 +31,7 @@ resource "aws_security_group" "splunk" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "ami-03f6d497fceb40069"
+  ami           = "ami-02ea247e531eb3ce6"
   key_name      = "mastercal"
   instance_type = "t2.large"
   security_groups = ["${aws_security_group.splunk.name}"]
