@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key = "AKIAXUU6JOBIRMHFO2UD"
-  secret_key = "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"
+  access_key = "AKIAXUU6JOBIVTEVMWYY"
+  secret_key = "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"
   region     = "us-west-1"
 }
 
@@ -33,7 +33,7 @@ resource "aws_security_group" "splunk" {
 resource "aws_instance" "web" {
   ami           = "ami-03f6d497fceb40069"
   key_name      = "mastercal"
-  instance_type = "t2.micro"
+  instance_type = "t2.large"
   security_groups = ["${aws_security_group.splunk.name}"]
     #connection {
     #host        = "${self.public_ip}"
